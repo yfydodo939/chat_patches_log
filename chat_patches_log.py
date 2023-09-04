@@ -36,7 +36,8 @@ def main():
             for msg in message:
                 if is_time:
                     # Unix Time
-                    result += ("[" + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(int(msg["insertion"]) / 1000)) + "] ")
+                    result += ("[" + time.strftime("%Y-%m-%d %H:%M:%S",
+                                                   time.localtime(int(msg["insertion"]) / 1000)) + "] ")
                     is_time = False
                 else:
                     # Type Of Message
@@ -55,9 +56,20 @@ def main():
                         elif msg["translate"] == "commands.message.display.incoming":
                             result += ("[" + msg["with"][0]["insertion"] + " -> me] " + msg["with"][1]["text"])
                         else:
-                            result += ("[" + msg["with"][0]["insertion"] + "] ! " + msg["translate"] + " !")
+                            try:
+                                result += ("[" + msg["with"][0]["insertion"] + "] ! " + msg["translate"] + " !")
+                            except BaseException as e:
+                                print(e)
+                                result += ("! " + msg["translate"] + " !")
                             for t in msg["with"]:
-                                result += (" " + t["text"])
+                                try:
+                                    result += (" " + t["text"])
+                                except BaseException as e:
+                                    print(e)
+                                    try:
+                                        result += (" " + t["translate"])
+                                    except BaseException as e:
+                                        print(e)
                     elif "extra" in msg:
                         for m in msg["extra"]:
                             if isinstance(m, type("")):
