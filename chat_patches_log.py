@@ -87,7 +87,7 @@ def main():
             print(e)
     # Close File
     fp.close()
-    print("\n\n" + str(count) + "messages have been processed successfully! \"chatlog.txt\" has been saved in the "
+    print("\n\n" + str(count) + " messages have been processed successfully! \"chatlog.txt\" has been saved in the "
                                 "same folder. \n")
 
 
