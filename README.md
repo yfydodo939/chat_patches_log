@@ -1,5 +1,5 @@
 # chat_patches_log
-
+### 注意聊天文件日志位于 `~/logs/chatlog.json`
 + 这个程序服务于 chat patches mod，如果你不知道这个程序是做什么的，说明你不需要它
 + 请把 "chatlog.json" 文件放在同级目录下，且不要更改文件名
 + 程序自动去除了 json 文件中的 §(\u00a7) 颜色代码
